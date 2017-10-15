@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: io.vertx:vertx-unit:3.4.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.vertx/vertx-unit/3.4.2/f8b87fe43ee3271caa50ddf656c576e26fe50a6e/vertx-unit-3.4.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.vertx/vertx-unit/3.4.2/fc6fde959d2d55a39e6b66916afaad0f978010/vertx-unit-3.4.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

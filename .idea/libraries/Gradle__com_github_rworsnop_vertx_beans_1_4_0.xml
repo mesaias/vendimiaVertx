@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.rworsnop:vertx-beans:1.4.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.rworsnop/vertx-beans/1.4.0/eff612c932ad4aadbbc1e8aa674bec08d6256b64/vertx-beans-1.4.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.rworsnop/vertx-beans/1.4.0/c154e371957dd6abfc3d165805b5a97425fa0ea1/vertx-beans-1.4.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

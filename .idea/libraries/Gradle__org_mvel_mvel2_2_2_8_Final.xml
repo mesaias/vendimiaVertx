@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.mvel:mvel2:2.2.8.Final">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mvel/mvel2/2.2.8.Final/a0d38dc2422594621b71604f91255af1001114c0/mvel2-2.2.8.Final.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.mvel/mvel2/2.2.8.Final/dfa5a31912f8638a2adbefcfa7a18d7f271cad1b/mvel2-2.2.8.Final-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

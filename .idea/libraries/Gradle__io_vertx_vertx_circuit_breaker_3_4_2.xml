@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: io.vertx:vertx-circuit-breaker:3.4.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.vertx/vertx-circuit-breaker/3.4.2/c02dff8eba075d466273e131318d5b2a8bbc0201/vertx-circuit-breaker-3.4.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.vertx/vertx-circuit-breaker/3.4.2/8a8ad11f6509d187665ee9b29c4a850186c6926b/vertx-circuit-breaker-3.4.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
