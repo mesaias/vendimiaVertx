@@ -1,8 +1,8 @@
-package com.vertx.vendimia;
+package io.vertx.vendimia;
 
-import com.vertx.vendimia.service.sensor.SensorService;
-import com.vertx.vendimia.service.sensor.SensorServiceProvider;
-import com.vertx.vendimia.service.syncsensor.verticle.SensorWorkerGetVerticle;
+import io.vertx.vendimia.service.sensor.SensorService;
+import io.vertx.vendimia.service.sensor.SensorServiceProvider;
+import io.vertx.vendimia.service.syncsensor.verticle.SensorWorkerGetVerticle;
 import io.vertx.blueprint.microservice.common.BaseMicroserviceVerticle;
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Future;
@@ -24,10 +24,10 @@ public class MainVerticle extends BaseMicroserviceVerticle {
 	public void start(Future<Void> future) throws Exception {
 		super.start();
 		/* Creamos una única instancia de nuestro servicio de sensores */
-    System.out.println( future);
     System.out.println( vertx );
     SensorServiceProvider sensorServiceProvider = SensorServiceProvider.getInstance();
 		sensorServiceProvider.init(vertx, config());
+    System.out.println( future);
 
 		/* Registramos el servicio (Para el ejemplo del uso del bus ) */
 		ProxyHelper.registerService(SensorService.class, vertx, sensorServiceProvider.getSensorService(), SensorService.SERVICE_ADDRESS);
@@ -42,7 +42,8 @@ public class MainVerticle extends BaseMicroserviceVerticle {
 		deployVerticle().compose(ar -> deploySyncVerticle()).setHandler(future.completer());
 	}
 
-	/**
+
+  /**
 	 * Despliegue de otro verticle de tipo worker con operación síncrona
 	 *
 	 */
@@ -57,10 +58,10 @@ public class MainVerticle extends BaseMicroserviceVerticle {
 		/* Desplegamos nuestro verticle http server con los datos adecuados */
 		vertx.deployVerticle(HttpServerVerticle.class.getName(), deploymentOptions, ar -> {
 			if (ar.succeeded()) {
-				LOGGER.info(String.format("Deployment verticle  ok Example3HttpServerVerticle "));
+				LOGGER.info(String.format("Deployment verticle  ok vendimia "));
 				future.complete();
 			} else {
-				LOGGER.info(String.format("Deployment verticle ko Example3HttpServerVerticle " + ar.cause()));
+				LOGGER.info(String.format("Deployment verticle ko vendimia " + ar.cause()));
 				future.fail(ar.cause());
 			}
 		});

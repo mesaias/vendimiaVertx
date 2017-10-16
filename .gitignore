@@ -1,5 +1,9 @@
 .gradle
 build/
+.idea/
+src/main/asciidoc/
+src/main/java/asciidoc/
+src/main/generated/
 bin/
 .settings
 

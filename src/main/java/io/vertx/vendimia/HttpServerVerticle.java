@@ -1,8 +1,8 @@
-package com.vertx.vendimia;
+package io.vertx.vendimia;
 
-import com.vertx.vendimia.service.sensor.SensorService;
-import com.vertx.vendimia.service.sensor.dto.SensorDTO;
-import com.vertx.vendimia.service.syncsensor.verticle.SensorWorkerGetVerticle;
+import io.vertx.vendimia.service.sensor.SensorService;
+import io.vertx.vendimia.service.sensor.dto.SensorDTO;
+import io.vertx.vendimia.service.syncsensor.verticle.SensorWorkerGetVerticle;
 import io.vertx.blueprint.microservice.common.RestAPIVerticle;
 import io.vertx.core.Future;
 import io.vertx.core.json.JsonObject;
@@ -61,8 +61,9 @@ public class HttpServerVerticle extends RestAPIVerticle {
 		// Datos del server de arranque y por defecto
 		String host = config().getString("vertx.host", "0.0.0.0");
 		int port = config().getInteger("vertx.port", 7777);
-
-		/* Creamos nuestro servidor http */
+    System.out.println(port);
+    System.out.println(future);
+    /* Creamos nuestro servidor http */
 		createHttpServer(router, host, port).setHandler(future.completer());
 
 		LOGGER.info(" started " + this.getClass().getSimpleName());

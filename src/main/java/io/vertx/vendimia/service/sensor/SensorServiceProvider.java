@@ -1,6 +1,6 @@
-package com.vertx.vendimia.service.sensor;
+package io.vertx.vendimia.service.sensor;
 
-import com.vertx.vendimia.service.sensor.impl.SensorServiceImpl;
+import io.vertx.vendimia.service.sensor.impl.SensorServiceImpl;
 import io.vertx.core.Vertx;
 import io.vertx.core.json.JsonObject;
 
@@ -18,8 +18,6 @@ public final class SensorServiceProvider {
 	private static SensorServiceProvider instance = new SensorServiceProvider();
 
 	public synchronized SensorService init(Vertx vertx, JsonObject config) {
-    System.out.println(config+"--------------AQUI--------------");
-
     setSensorService(new SensorServiceImpl(vertx, config));
 		return getSensorService();
 	}

@@ -1,13 +1,13 @@
-package com.vertx.vendimia.service.sensor.impl;
+package io.vertx.vendimia.service.sensor.impl;
 
-import com.vertx.vendimia.service.sensor.SensorService;
-import com.vertx.vendimia.service.sensor.dto.SensorDTO;
+import io.vertx.vendimia.service.sensor.SensorService;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Future;
 import io.vertx.core.Handler;
 import io.vertx.core.Vertx;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.mongo.MongoClient;
+import io.vertx.vendimia.service.sensor.dto.SensorDTO;
 import org.bson.types.ObjectId;
 
 import java.text.SimpleDateFormat;
@@ -26,12 +26,11 @@ public class SensorServiceImpl implements SensorService {
 	protected final Vertx vertx;
 
 	public SensorServiceImpl(Vertx vertx, JsonObject config) {
-    System.out.println( config );
     /* Configuración de la conexión http://vertx.io/docs/vertx-mongo-client/java/#_configuring_the_client */
-		//JsonObject jsonObject = config.getJsonObject("mongo");
-		JsonObject jsonObject = new JsonObject();
-		jsonObject.put( "connection_string", "mongodb://localhost/?waitQueueMultiple=10000000" );
-		jsonObject.put("db_name","sensors");
+		JsonObject jsonObject = config.getJsonObject("mongo");
+		//JsonObject jsonObject = new JsonObject();
+		//jsonObject.put( "connection_string", "mongodb://localhost/?waitQueueMultiple=10000000" );
+		//jsonObject.put("db_name","sensors");
     System.out.println(jsonObject + "AQUI");
     this.client = MongoClient.createNonShared(vertx, jsonObject);
 		this.vertx = vertx;

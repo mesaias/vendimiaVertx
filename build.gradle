@@ -1,6 +1,25 @@
+buildscript {
+  repositories {
+    jcenter()
+  }
+
+  dependencies {
+    classpath 'eu.appsatori:gradle-fatjar-plugin:0.3'
+  }
+}
+
 plugins {
+  id 'java'
   id 'application'
   id 'com.github.johnrengelman.shadow' version '1.2.3'
+  id 'idea'
+
+}
+
+idea {
+  project {
+    languageLevel = '1.8'
+  }
 }
 
 repositories {
@@ -12,7 +31,7 @@ sourceCompatibility = '1.8'
 mainClassName = 'io.vertx.core.Launcher'
 
 def vertxVersion = '3.4.2'
-def mainVerticleName = 'com.vertx.vendimia.MainVerticle'
+def mainVerticleName = 'io.vertx.vendimia.MainVerticle'
 def watchForChange = 'src/**/*'
 def doOnChange = './gradlew classes'
 def log4j = '1.7.25'
@@ -53,7 +72,7 @@ dependencies {
   compile group: 'io.vertx', name: 'vertx-service-proxy', version: "$vertxVersion"
   compile group: 'io.vertx', name: 'vertx-web', version: "$vertxVersion"
 
-
+  compile group: 'com.google.guava', name: 'guava', version: '16.0.1'
   compile group: 'com.google.code.gson', name: 'gson', version: '2.8.2'
 
 
@@ -105,7 +124,51 @@ shadowJar {
     include 'META-INF/services/io.vertx.core.spi.VerticleFactory'
   }
 }
+task annotationProcessing(type: JavaCompile, group: 'build') { // codegen
+  source = sourceSets.main.java
+  classpath = configurations.compile + configurations.compileOnly
+  destinationDir = project.file('src/main/generated')
+  options.compilerArgs = [
+    "-proc:only",
+    "-processor", "io.vertx.codegen.CodeGenProcessor",
+    "-AoutputDirectory=/src/main"
+  ]
+}
 
+compileJava {
+  targetCompatibility = 1.8
+  sourceCompatibility = 1.8
+
+  dependsOn annotationProcessing
+}
+
+sourceSets {
+  main {
+    java {
+      srcDirs += 'src/main/generated'
+    }
+  }
+}
+
+/*
+task generateServiceProxy(type: JavaCompile, description: 'Generates EBServiceProxies') {
+  source = sourceSets.main.java
+  classpath = configurations.compile
+  destinationDir = sourceSets.generated.java.srcDirs.iterator().next()
+  options.compilerArgs = [
+    "-proc:only",
+    "-processor", "io.vertx.codegen.CodeGenProcessor",
+    "-AoutputDirectory=$destinationDir"
+  ]
+}
+
+
+compileJava {
+  source sourceSets.main.java + sourceSets.generated.java
+}
+compileJava.dependsOn generateServiceProxy
+
+*/
 run {
   args = ['run', mainVerticleName, "--redeploy=$watchForChange", "--launcher-class=$mainClassName", "--on-redeploy=$doOnChange"]
 }

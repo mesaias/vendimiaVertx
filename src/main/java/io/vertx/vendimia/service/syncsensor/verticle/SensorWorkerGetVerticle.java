@@ -1,16 +1,16 @@
-package com.vertx.vendimia.service.syncsensor.verticle;
+package io.vertx.vendimia.service.syncsensor.verticle;
 
-import com.vertx.vendimia.service.sensor.SensorService;
-import com.vertx.vendimia.service.sensor.SensorServiceProvider;
-import com.vertx.vendimia.service.sensor.dto.SensorDTO;
+import io.vertx.vendimia.service.sensor.SensorService;
 
-import com.vertx.vendimia.service.syncsensor.impl.SensorSyncServiceImpl;
+import io.vertx.vendimia.service.sensor.dto.SensorDTO;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Handler;
 import io.vertx.core.eventbus.Message;
 import io.vertx.core.json.JsonObject;
 import io.vertx.core.logging.Logger;
 import io.vertx.core.logging.LoggerFactory;
+import io.vertx.vendimia.service.sensor.dto.SensorDTOConverter;
+import io.vertx.vendimia.service.syncsensor.impl.SensorSyncServiceImpl;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -53,7 +53,7 @@ public class SensorWorkerGetVerticle extends AbstractVerticle implements Handler
 			service.getSensor(id, handler -> {
 				SensorDTO result = handler.result();
 				if (handler.succeeded() && result != null) {
-					SensorDTO.toJson(result, resultObject);
+					SensorDTOConverter.toJson(result, resultObject);
 				} else {
 					resultObject.put("error", "Not Found element");
 				}

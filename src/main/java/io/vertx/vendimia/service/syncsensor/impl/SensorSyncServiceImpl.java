@@ -1,8 +1,8 @@
-package com.vertx.vendimia.service.syncsensor.impl;
+package io.vertx.vendimia.service.syncsensor.impl;
 
-import com.vertx.vendimia.service.sensor.SensorService;
-import com.vertx.vendimia.service.sensor.dto.SensorDTO;
-import com.vertx.vendimia.service.sensor.impl.SensorServiceImpl;
+import io.vertx.vendimia.service.sensor.SensorService;
+import io.vertx.vendimia.service.sensor.dto.SensorDTO;
+import io.vertx.vendimia.service.sensor.impl.SensorServiceImpl;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 import io.vertx.core.Vertx;
@@ -32,7 +32,7 @@ public class SensorSyncServiceImpl extends SensorServiceImpl {
 
 	public SensorSyncServiceImpl(Vertx vertx, JsonObject config) {
 		super(vertx, config);
-  }
+	}
 
 	@Override
 	public void getSensor(String id, Handler<AsyncResult<SensorDTO>> resultHandler) {
