@@ -1,5 +1,6 @@
-package io.vertx.vendimia;
+package io.vertx.vendimia.verticles;
 
+import io.vertx.vendimia.HttpServerVerticles.HttpServerVerticle;
 import io.vertx.vendimia.service.sensor.SensorService;
 import io.vertx.vendimia.service.sensor.SensorServiceProvider;
 import io.vertx.vendimia.service.syncsensor.verticle.SensorWorkerGetVerticle;

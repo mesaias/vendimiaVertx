@@ -1,4 +1,4 @@
-package io.vertx.vendimia;
+package io.vertx.vendimia.HttpServerVerticles;
 
 import io.vertx.vendimia.service.sensor.SensorService;
 import io.vertx.vendimia.service.sensor.dto.SensorDTO;
@@ -12,6 +12,7 @@ import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.handler.BodyHandler;
 import io.vertx.serviceproxy.ProxyHelper;
+import io.vertx.vendimia.verticles.MainVerticle;
 import org.apache.commons.lang3.StringUtils;
 
 /**

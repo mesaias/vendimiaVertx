@@ -31,7 +31,7 @@ sourceCompatibility = '1.8'
 mainClassName = 'io.vertx.core.Launcher'
 
 def vertxVersion = '3.4.2'
-def mainVerticleName = 'io.vertx.vendimia.MainVerticle'
+def mainVerticleName = 'io.vertx.vendimia.verticles.MainVerticle'
 def watchForChange = 'src/**/*'
 def doOnChange = './gradlew classes'
 def log4j = '1.7.25'

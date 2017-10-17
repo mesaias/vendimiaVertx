@@ -5,7 +5,6 @@ import io.vertx.core.json.JsonObject;
 import lombok.Data;
 
 @DataObject(generateConverter = true)
-@Data
 public class SensorDTO {
 
   private String id;
@@ -38,7 +37,7 @@ public class SensorDTO {
     return this.toJson().encodePrettily();
   }
 
-  /*
+
   public String getId() {
     return id;
   }
@@ -70,6 +69,4 @@ public class SensorDTO {
   public void setMeasure(Double measure) {
     this.measure = measure;
   }
-
-*/
 }
