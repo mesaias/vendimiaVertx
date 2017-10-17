@@ -1,8 +1,7 @@
-package io.vertx.vendimia.service.sensor.dto;
+package io.vertx.vendimia.domain.dto;
 
 import io.vertx.codegen.annotations.DataObject;
 import io.vertx.core.json.JsonObject;
-import lombok.Data;
 
 @DataObject(generateConverter = true)
 public class SensorDTO {

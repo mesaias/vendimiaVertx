@@ -1,7 +1,7 @@
 package io.vertx.vendimia.service.syncsensor.impl;
 
 import io.vertx.vendimia.service.sensor.SensorService;
-import io.vertx.vendimia.service.sensor.dto.SensorDTO;
+import io.vertx.vendimia.domain.dto.SensorDTO;
 import io.vertx.vendimia.service.sensor.impl.SensorServiceImpl;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;

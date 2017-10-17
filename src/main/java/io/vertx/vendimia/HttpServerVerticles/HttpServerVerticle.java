@@ -1,7 +1,7 @@
 package io.vertx.vendimia.HttpServerVerticles;
 
 import io.vertx.vendimia.service.sensor.SensorService;
-import io.vertx.vendimia.service.sensor.dto.SensorDTO;
+import io.vertx.vendimia.domain.dto.SensorDTO;
 import io.vertx.vendimia.service.syncsensor.verticle.SensorWorkerGetVerticle;
 import io.vertx.blueprint.microservice.common.RestAPIVerticle;
 import io.vertx.core.Future;

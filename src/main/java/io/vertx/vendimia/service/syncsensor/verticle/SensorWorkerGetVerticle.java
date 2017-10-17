@@ -2,14 +2,14 @@ package io.vertx.vendimia.service.syncsensor.verticle;
 
 import io.vertx.vendimia.service.sensor.SensorService;
 
-import io.vertx.vendimia.service.sensor.dto.SensorDTO;
+import io.vertx.vendimia.domain.dto.SensorDTO;
+import io.vertx.vendimia.domain.dto.SensorDTOConverter;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Handler;
 import io.vertx.core.eventbus.Message;
 import io.vertx.core.json.JsonObject;
 import io.vertx.core.logging.Logger;
 import io.vertx.core.logging.LoggerFactory;
-import io.vertx.vendimia.service.sensor.dto.SensorDTOConverter;
 import io.vertx.vendimia.service.syncsensor.impl.SensorSyncServiceImpl;
 import org.apache.commons.lang3.StringUtils;
 

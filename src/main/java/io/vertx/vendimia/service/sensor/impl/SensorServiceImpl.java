@@ -7,7 +7,7 @@ import io.vertx.core.Handler;
 import io.vertx.core.Vertx;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.mongo.MongoClient;
-import io.vertx.vendimia.service.sensor.dto.SensorDTO;
+import io.vertx.vendimia.domain.dto.SensorDTO;
 import org.bson.types.ObjectId;
 
 import java.text.SimpleDateFormat;
