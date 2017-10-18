@@ -1,6 +1,6 @@
-package io.vertx.vendimia.service.sensor.impl;
+package io.vertx.vendimia.implementation;
 
-import io.vertx.vendimia.service.sensor.SensorService;
+import io.vertx.vendimia.serviceInterface.SensorInterface;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Future;
 import io.vertx.core.Handler;
@@ -18,14 +18,14 @@ import java.util.Date;
  * @author manuel
  *
  */
-public class SensorServiceImpl implements SensorService {
+public class SensorInterfaceImpl implements SensorInterface {
 
 	private static final String COLLECTION = "sensor";
 
 	private final MongoClient client;
 	protected final Vertx vertx;
 
-	public SensorServiceImpl(Vertx vertx, JsonObject config) {
+	public SensorInterfaceImpl(Vertx vertx, JsonObject config) {
     /* Configuración de la conexión http://vertx.io/docs/vertx-mongo-client/java/#_configuring_the_client */
 		JsonObject jsonObject = config.getJsonObject("mongo");
 		//JsonObject jsonObject = new JsonObject();
@@ -53,7 +53,7 @@ public class SensorServiceImpl implements SensorService {
 
 	@Override
 	public void getSensor(String id, Handler<AsyncResult<SensorDTO>> resultHandler) {
-		LOGGER.info(String.format(" get sensor data ", id));
+    LOGGER.info(String.format(" get sensor data ", id));
 		JsonObject query = new JsonObject().put("_id", id);
 		client.findOne(COLLECTION, query, null, ar -> {
 			if (ar.succeeded()) {
@@ -71,7 +71,7 @@ public class SensorServiceImpl implements SensorService {
 
 	@Override
 	public void removeSensor(String id, Handler<AsyncResult<Void>> resultHandler) {
-		LOGGER.info(String.format(" remove sensor data ", id));
+    LOGGER.info(String.format(" remove sensor data ", id));
 		JsonObject query = new JsonObject().put("_id", id);
 		client.removeDocument(COLLECTION, query, ar -> {
 			if (ar.succeeded()) {

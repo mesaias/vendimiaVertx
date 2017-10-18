@@ -1,4 +1,4 @@
-package io.vertx.vendimia.service.sensor;
+package io.vertx.vendimia.serviceInterface;
 
 import io.vertx.codegen.annotations.ProxyGen;
 import io.vertx.codegen.annotations.VertxGen;
@@ -12,13 +12,12 @@ import io.vertx.vendimia.domain.dto.SensorDTO;
  * Definición de la comunicación con el BUS de Vert.x en cuanto a las operaciones que podremos realizar con nuestro sensor
  *
  * @author manuel
- *
  */
 @VertxGen
 @ProxyGen
-public interface SensorService {
+public interface SensorInterface {
 
-  public static final Logger LOGGER = LoggerFactory.getLogger(SensorService.class);
+  public static final Logger LOGGER = LoggerFactory.getLogger(SensorInterface.class);
 
   public static final String SERVICE_NAME = "sensor-eb-service";
   public static final String SERVICE_ADDRESS = "service.sensor";
@@ -30,3 +29,4 @@ public interface SensorService {
   public abstract void removeSensor(String id, Handler<AsyncResult<Void>> resultHandler);
 
 }
+

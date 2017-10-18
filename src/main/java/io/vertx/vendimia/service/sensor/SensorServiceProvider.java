@@ -1,8 +1,9 @@
 package io.vertx.vendimia.service.sensor;
 
-import io.vertx.vendimia.service.sensor.impl.SensorServiceImpl;
+import io.vertx.vendimia.implementation.SensorInterfaceImpl;
 import io.vertx.core.Vertx;
 import io.vertx.core.json.JsonObject;
+import io.vertx.vendimia.serviceInterface.SensorInterface;
 
 /**
  * Provider para realizar el singleton de la implementación de los sensores
@@ -12,14 +13,14 @@ import io.vertx.core.json.JsonObject;
  */
 public final class SensorServiceProvider {
 
-	private SensorService sensorService;
+	private SensorInterface sensorInterface;
 
 	/* Singleton */
 	private static SensorServiceProvider instance = new SensorServiceProvider();
 
-	public synchronized SensorService init(Vertx vertx, JsonObject config) {
-    setSensorService(new SensorServiceImpl(vertx, config));
-		return getSensorService();
+	public synchronized SensorInterface init(Vertx vertx, JsonObject config) {
+    setSensorInterface(new SensorInterfaceImpl(vertx, config));
+		return getSensorInterface();
 	}
 
 	public static SensorServiceProvider getInstance() {
@@ -29,12 +30,12 @@ public final class SensorServiceProvider {
 	private SensorServiceProvider() {
 	}
 
-	public SensorService getSensorService() {
-		return sensorService;
+	public SensorInterface getSensorInterface() {
+		return sensorInterface;
 	}
 
-	private void setSensorService(SensorService SensorService) {
-		this.sensorService = SensorService;
+	private void setSensorInterface(SensorInterface SensorInterface) {
+		this.sensorInterface = SensorInterface;
 	}
 
 }

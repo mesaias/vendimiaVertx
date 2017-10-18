@@ -1,6 +1,6 @@
 package io.vertx.vendimia.service.syncsensor.verticle;
 
-import io.vertx.vendimia.service.sensor.SensorService;
+import io.vertx.vendimia.serviceInterface.SensorInterface;
 
 import io.vertx.vendimia.domain.dto.SensorDTO;
 import io.vertx.vendimia.domain.dto.SensorDTOConverter;
@@ -10,7 +10,7 @@ import io.vertx.core.eventbus.Message;
 import io.vertx.core.json.JsonObject;
 import io.vertx.core.logging.Logger;
 import io.vertx.core.logging.LoggerFactory;
-import io.vertx.vendimia.service.syncsensor.impl.SensorSyncServiceImpl;
+import io.vertx.vendimia.service.syncsensor.implementation.SensorSyncInterfaceImpl;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -22,7 +22,7 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class SensorWorkerGetVerticle extends AbstractVerticle implements Handler<Message<JsonObject>> {
 
-	public static final Logger LOGGER = LoggerFactory.getLogger(SensorService.class);
+	public static final Logger LOGGER = LoggerFactory.getLogger(SensorInterface.class);
 
 	/** Dirección del verticle dentro del Bus */
 	public static final String VERTICLE_ADDRESS = "verticle.worker.get.sensor";
@@ -37,7 +37,7 @@ public class SensorWorkerGetVerticle extends AbstractVerticle implements Handler
 	@Override
 	public void handle(Message<JsonObject> event) {
 		/* Referencia al servicio (ojo si estamos usando la comunicación por el bus o bien sin él) */
-		SensorService service = new SensorSyncServiceImpl(vertx, config());
+		SensorInterface service = new SensorSyncInterfaceImpl(vertx, config());
 
 		JsonObject body = event.body();
 		/* Obtenemos el id */

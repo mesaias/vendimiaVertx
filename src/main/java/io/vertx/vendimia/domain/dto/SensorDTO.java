@@ -25,6 +25,7 @@ public class SensorDTO {
     SensorDTOConverter.fromJson(json, this);
   }
 
+
   public JsonObject toJson() {
     JsonObject json = new JsonObject();
     SensorDTOConverter.toJson(this, json);
@@ -35,7 +36,6 @@ public class SensorDTO {
   public String toString() {
     return this.toJson().encodePrettily();
   }
-
 
   public String getId() {
     return id;

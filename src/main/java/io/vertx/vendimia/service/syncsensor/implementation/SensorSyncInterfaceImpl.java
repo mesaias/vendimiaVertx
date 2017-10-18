@@ -1,8 +1,8 @@
-package io.vertx.vendimia.service.syncsensor.impl;
+package io.vertx.vendimia.service.syncsensor.implementation;
 
-import io.vertx.vendimia.service.sensor.SensorService;
+import io.vertx.vendimia.implementation.SensorInterfaceImpl;
+import io.vertx.vendimia.serviceInterface.SensorInterface;
 import io.vertx.vendimia.domain.dto.SensorDTO;
-import io.vertx.vendimia.service.sensor.impl.SensorServiceImpl;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Handler;
 import io.vertx.core.Vertx;
@@ -14,7 +14,7 @@ import io.vertx.core.json.JsonObject;
  * @author manuel
  *
  */
-public class SensorSyncServiceImpl extends SensorServiceImpl {
+public class SensorSyncInterfaceImpl extends SensorInterfaceImpl {
 
 
 
@@ -25,12 +25,12 @@ public class SensorSyncServiceImpl extends SensorServiceImpl {
 	 *
 	 */
 	public static class Builder {
-		public SensorService create(Vertx vertx, JsonObject config) {
-			return new SensorSyncServiceImpl(vertx, config);
+		public SensorInterface create(Vertx vertx, JsonObject config) {
+			return new SensorSyncInterfaceImpl(vertx, config);
 		}
 	}
 
-	public SensorSyncServiceImpl(Vertx vertx, JsonObject config) {
+	public SensorSyncInterfaceImpl(Vertx vertx, JsonObject config) {
 		super(vertx, config);
 	}
 
@@ -40,7 +40,7 @@ public class SensorSyncServiceImpl extends SensorServiceImpl {
 		/* Paramos X simulando sincronía y realizamos la operación */
 		vertx.setTimer(200, h -> {
 			/* Invocamos al método del padre */
-			SensorSyncServiceImpl.super.getSensor(id, resultHandler);
+			SensorSyncInterfaceImpl.super.getSensor(id, resultHandler);
 		});
 
 	}

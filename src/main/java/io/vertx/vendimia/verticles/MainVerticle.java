@@ -1,7 +1,7 @@
 package io.vertx.vendimia.verticles;
 
 import io.vertx.vendimia.HttpServerVerticles.HttpServerVerticle;
-import io.vertx.vendimia.service.sensor.SensorService;
+import io.vertx.vendimia.serviceInterface.SensorInterface;
 import io.vertx.vendimia.service.sensor.SensorServiceProvider;
 import io.vertx.vendimia.service.syncsensor.verticle.SensorWorkerGetVerticle;
 import io.vertx.blueprint.microservice.common.BaseMicroserviceVerticle;
@@ -25,13 +25,11 @@ public class MainVerticle extends BaseMicroserviceVerticle {
 	public void start(Future<Void> future) throws Exception {
 		super.start();
 		/* Creamos una única instancia de nuestro servicio de sensores */
-    System.out.println( vertx );
     SensorServiceProvider sensorServiceProvider = SensorServiceProvider.getInstance();
 		sensorServiceProvider.init(vertx, config());
-    System.out.println( future);
 
 		/* Registramos el servicio (Para el ejemplo del uso del bus ) */
-		ProxyHelper.registerService(SensorService.class, vertx, sensorServiceProvider.getSensorService(), SensorService.SERVICE_ADDRESS);
+    ProxyHelper.registerService(SensorInterface.class, vertx, sensorServiceProvider.getSensorInterface(), SensorInterface.SERVICE_ADDRESS);
 
 		/* MODO INCORRECTO DE DESPLEGAR VERTICLES no asíncrono !!!! Vert.x es asíncrono desde su arranque !!!*/
 		/* Desplegamos el sync verticle */

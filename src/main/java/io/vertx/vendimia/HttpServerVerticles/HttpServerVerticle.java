@@ -1,6 +1,6 @@
 package io.vertx.vendimia.HttpServerVerticles;
 
-import io.vertx.vendimia.service.sensor.SensorService;
+import io.vertx.vendimia.serviceInterface.SensorInterface;
 import io.vertx.vendimia.domain.dto.SensorDTO;
 import io.vertx.vendimia.service.syncsensor.verticle.SensorWorkerGetVerticle;
 import io.vertx.blueprint.microservice.common.RestAPIVerticle;
@@ -129,11 +129,11 @@ public class HttpServerVerticle extends RestAPIVerticle {
 	 *
 	 * @return
 	 */
-	private SensorService getSensorService() {
+	private SensorInterface getSensorService() {
 		/* Uso del bus para las comunicaciones  */
-		SensorService sensorService = ProxyHelper.createProxy(SensorService.class, vertx, SensorService.SERVICE_ADDRESS);
-		//SensorService sensorService = SensorServiceProvider.getInstance().getSensorService();
-		return sensorService;
+    SensorInterface sensorInterface = ProxyHelper.createProxy(SensorInterface.class, vertx, SensorInterface.SERVICE_ADDRESS);
+		//SensorInterface sensorInterface = SensorServiceProvider.getInstance().getSensorInterface();
+		return sensorInterface;
 	}
 
 }
