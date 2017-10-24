@@ -36,19 +36,6 @@ def watchForChange = 'src/**/*'
 def doOnChange = './gradlew classes'
 def log4j = '1.7.25'
 
-repositories {
-  mavenCentral()
-  jcenter()
-
-  maven {
-    credentials {
-      username 'user'
-      password 'Pr4lTnq4Zb6l'
-    }
-    url 'http://artifactory.concredito.com.mx/artifactory/libs-release'
-  }
-}
-
 dependencies {
   compile(group: 'com.concredito.io.vertx.blueprint', name: 'microservice-lib-common', version: '3.4.2')
 
