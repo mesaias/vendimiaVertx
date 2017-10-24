@@ -1,22 +1,16 @@
 package io.vertx.vendimia.verticles;
 
-import io.vertx.vendimia.HttpServerVerticles.HttpServerVerticle;
+import io.vertx.vendimia.controller.HttpServerVerticle;
 import io.vertx.vendimia.serviceInterface.SensorInterface;
-import io.vertx.vendimia.service.sensor.SensorServiceProvider;
-import io.vertx.vendimia.service.syncsensor.verticle.SensorWorkerGetVerticle;
+import io.vertx.vendimia.servicesProvider.SensorServiceProvider;
 import io.vertx.blueprint.microservice.common.BaseMicroserviceVerticle;
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Future;
 import io.vertx.core.logging.Logger;
 import io.vertx.core.logging.LoggerFactory;
 import io.vertx.serviceproxy.ProxyHelper;
+import io.vertx.vendimia.syncServices.verticles.SensorWorkerGetVerticle;
 
-/**
- * Verticle que arrancará el resto de los de la aplicación
- *
- * @author manuel
- *
- */
 public class MainVerticle extends BaseMicroserviceVerticle {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(MainVerticle.class);

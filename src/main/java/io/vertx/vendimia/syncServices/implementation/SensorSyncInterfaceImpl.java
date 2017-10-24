@@ -1,4 +1,4 @@
-package io.vertx.vendimia.service.syncsensor.implementation;
+package io.vertx.vendimia.syncServices.implementation;
 
 import io.vertx.vendimia.implementation.SensorInterfaceImpl;
 import io.vertx.vendimia.serviceInterface.SensorInterface;

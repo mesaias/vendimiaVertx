@@ -31,7 +31,7 @@ sourceCompatibility = '1.8'
 mainClassName = 'io.vertx.core.Launcher'
 
 def vertxVersion = '3.4.2'
-def mainVerticleName = 'io.vertx.vendimia.verticles.MainVerticle'
+def mainVerticleName = 'io.vertx.vendimia.verticles.UserVerticle'
 def watchForChange = 'src/**/*'
 def doOnChange = './gradlew classes'
 def log4j = '1.7.25'
@@ -51,7 +51,6 @@ repositories {
 
 dependencies {
   compile(group: 'com.concredito.io.vertx.blueprint', name: 'microservice-lib-common', version: '3.4.2')
-
 
   compile "io.vertx:vertx-dependencies:$vertxVersion"
   compile "com.hazelcast:hazelcast:3.6.3"
@@ -84,6 +83,8 @@ dependencies {
 
 
   testCompile "org.assertj:assertj-core:3.6.2"
+  compile group: 'javax.inject', name: 'javax.inject', version: '1'
+
 
   testCompile "junit:junit:4.12"
   compile "org.apache.logging.log4j:log4j-core:$log4j"

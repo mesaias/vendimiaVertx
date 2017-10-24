@@ -3,7 +3,7 @@ package io.vertx.vendimia.domain.dto;
 import io.vertx.codegen.annotations.DataObject;
 import io.vertx.core.json.JsonObject;
 
-//@DataObject( generateConverter = true )
+@DataObject( generateConverter = true )
 public class UserDTO {
 
   private String id;
@@ -11,31 +11,31 @@ public class UserDTO {
   private String username;
 
   private String password;
-/*
-  public UserDTO(){
+
+  public UserDTO() {
   }
-*/
+
   public UserDTO( UserDTO other ){
     this.setId( other.getId() );
     this.setUsername( other.getUsername() );
     this.setPassword( other.getPassword() );
   }
-/*
+
   public UserDTO( JsonObject jsonObject ){
-    UserDTOConverver.fromJson( jsonObject, this );
+    UserDTOConverter.fromJson( jsonObject, this );
   }
 
-  public JsonObject toJSon(){
+  public JsonObject toJson(){
     JsonObject jsonObject = new JsonObject();
     UserDTOConverter.toJson( this, jsonObject );
     return jsonObject;
   }
 
   @Override
-  public String toString(){
-    return this.toJSon().encodePrettily();
+  public String toString() {
+    return this.toJson().encodePrettily();
   }
-*/
+
   public String getId() {
     return id;
   }

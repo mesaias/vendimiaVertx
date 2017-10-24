@@ -1,8 +1,11 @@
 package io.vertx.vendimia.repositories;
 
+import io.vertx.core.AsyncResult;
+import io.vertx.core.Handler;
 import io.vertx.core.Vertx;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.mongo.MongoClient;
+import io.vertx.vendimia.domain.dto.UserDTO;
 
 public class UserRepository {
 
@@ -18,5 +21,7 @@ public class UserRepository {
     this.vertx = vertx;
   }
 
-
+  public void save( JsonObject jsonObject, Handler<AsyncResult< UserDTO >> resultHandler ){
+    //this.mongoClient.save( COLLECTION, jsonObject, resultHandler );
+  }
 }

@@ -1,16 +1,10 @@
-package io.vertx.vendimia.service.sensor;
+package io.vertx.vendimia.servicesProvider;
 
 import io.vertx.vendimia.implementation.SensorInterfaceImpl;
 import io.vertx.core.Vertx;
 import io.vertx.core.json.JsonObject;
 import io.vertx.vendimia.serviceInterface.SensorInterface;
 
-/**
- * Provider para realizar el singleton de la implementación de los sensores
- *
- * @author manuel
- *
- */
 public final class SensorServiceProvider {
 
 	private SensorInterface sensorInterface;

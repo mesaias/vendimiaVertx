@@ -1,4 +1,4 @@
-package io.vertx.vendimia.service.syncsensor.verticle;
+package io.vertx.vendimia.syncServices.verticles;
 
 import io.vertx.vendimia.serviceInterface.SensorInterface;
 
@@ -10,16 +10,9 @@ import io.vertx.core.eventbus.Message;
 import io.vertx.core.json.JsonObject;
 import io.vertx.core.logging.Logger;
 import io.vertx.core.logging.LoggerFactory;
-import io.vertx.vendimia.service.syncsensor.implementation.SensorSyncInterfaceImpl;
+import io.vertx.vendimia.syncServices.implementation.SensorSyncInterfaceImpl;
 import org.apache.commons.lang3.StringUtils;
 
-/**
- * Ejemplo de verticle worker para la operación get con configuración mediante anotación
- *
- *
- * @author manuel
- *
- */
 public class SensorWorkerGetVerticle extends AbstractVerticle implements Handler<Message<JsonObject>> {
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(SensorInterface.class);

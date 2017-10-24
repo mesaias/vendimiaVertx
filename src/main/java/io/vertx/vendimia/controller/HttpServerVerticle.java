@@ -1,8 +1,7 @@
-package io.vertx.vendimia.HttpServerVerticles;
+package io.vertx.vendimia.controller;
 
 import io.vertx.vendimia.serviceInterface.SensorInterface;
 import io.vertx.vendimia.domain.dto.SensorDTO;
-import io.vertx.vendimia.service.syncsensor.verticle.SensorWorkerGetVerticle;
 import io.vertx.blueprint.microservice.common.RestAPIVerticle;
 import io.vertx.core.Future;
 import io.vertx.core.json.JsonObject;
@@ -12,15 +11,10 @@ import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.handler.BodyHandler;
 import io.vertx.serviceproxy.ProxyHelper;
+import io.vertx.vendimia.syncServices.verticles.SensorWorkerGetVerticle;
 import io.vertx.vendimia.verticles.MainVerticle;
 import org.apache.commons.lang3.StringUtils;
 
-/**
- * Verticle con un API REST sencillo de sensores y de
- *
- * @author manuel
- *
- */
 public class HttpServerVerticle extends RestAPIVerticle {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(MainVerticle.class);
@@ -61,11 +55,11 @@ public class HttpServerVerticle extends RestAPIVerticle {
 
 		// Datos del server de arranque y por defecto
 		String host = config().getString("vertx.host", "0.0.0.0");
-		int port = config().getInteger("vertx.port", 7777);
+		int port = config().getInteger("vertx.port", 8081);
     System.out.println(port);
     System.out.println(future);
     /* Creamos nuestro servidor http */
-		createHttpServer(router, host, port).setHandler(future.completer());
+		createHttpServer( router, host, port ).setHandler(future.completer());
 
 		LOGGER.info(" started " + this.getClass().getSimpleName());
 

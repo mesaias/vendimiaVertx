@@ -13,11 +13,6 @@ import org.bson.types.ObjectId;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- *
- * @author manuel
- *
- */
 public class SensorInterfaceImpl implements SensorInterface {
 
 	private static final String COLLECTION = "sensor";
